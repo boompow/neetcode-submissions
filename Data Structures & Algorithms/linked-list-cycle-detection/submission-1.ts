@@ -1,0 +1,32 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     constructor(val = 0, next = null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+
+class Solution {
+    /**
+     * @param {ListNode} head
+     * @return {boolean}
+     */
+    hasCycle(head: ListNode | null): boolean {
+        const nodeSet: Set<ListNode> = new Set()
+        let current: ListNode | null = head
+
+        while(current){
+            if(nodeSet.has(current)){
+                return true
+            }else{
+                nodeSet.add(current)
+                current = current.next
+            }
+        }
+
+        return false
+
+    }
+}
